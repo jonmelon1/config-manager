@@ -9,7 +9,7 @@ function DisasterRecovery() {
     <Container className="p-3">
       <Jumbotron>
         <h1 className="header">
-          DisasterRecovery
+          Disaster Recovery
         </h1>
       </Jumbotron>
       <h2>Options</h2>

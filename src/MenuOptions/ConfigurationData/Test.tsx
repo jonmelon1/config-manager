@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import Shoot from './shoot';
 
 function Test() {
   return (
@@ -14,9 +15,10 @@ function Test() {
       </Jumbotron>
       <h2>Options</h2>
       <div className="p-1">
-    <Button variant="primary" className="mr-1">
+    <Button variant="primary" className="mr-1" onClick={Shoot}>
       Show list
     </Button>
+    <Shoot/>
     </div>
     </Container>
     </div>

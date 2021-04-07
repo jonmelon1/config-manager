@@ -20,12 +20,38 @@ code {
 
 .sidebar {
   height: 100vh;
-}
-
-.menubuttons {
-  width: 100%;
+  position: fixed;
 }
 
 .homepage {
-  width: 1000px;
+  width: 300px;
+}
+
+.shoot {
+  margin-top: 20px;
+  margin-left: 35px;
+
+}
+
+.pageView {
+  margin-left: 300px;
+  width: 140vh;
+  margin-top: 50px;
+}
+
+.header {
+  width: 140vh;
+}
+
+h2 {
+  margin-left: 1em;
+}
+
+.mr-1 {
+  margin-left: 2em;
+}
+
+.sidebarHeader {
+  font-size: 20px;
+  margin-left: 5px;
 }

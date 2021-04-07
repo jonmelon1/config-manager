@@ -18,7 +18,7 @@ function Environments() {
       Add
     </Button>
     <Button variant="warning" className="mr-1">
-      Edit description
+      Edit
     </Button>
     </div>
     </Container>

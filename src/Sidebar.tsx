@@ -9,10 +9,10 @@ function Sidebar() {
     <div className="sidebar">
       <ProSidebar>
       <Menu iconShape="square">
-      <MenuItem>Configuration Manager</MenuItem>
+      <MenuItem><div className="sidebarHeader">Configuration Manager</div></MenuItem>
       
       <SubMenu title="Home" icon={<IoHome />}>
-        <MenuItem><NavLink to="/welcome">Welcome</NavLink></MenuItem>
+        <MenuItem><NavLink to="/">Welcome</NavLink></MenuItem>
         <MenuItem><NavLink to="/about">About</NavLink></MenuItem>
       </SubMenu>
       
@@ -33,4 +33,5 @@ function Sidebar() {
     </div>
   );
 }
+
 export default Sidebar;
