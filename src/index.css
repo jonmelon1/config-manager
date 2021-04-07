@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.home {
+  margin-left: 300px;
+  flex: 0%;
+  position: absolute;
+}
+
+.sidebar {
+  height: 100vh;
+}
+
+.menubuttons {
+  width: 100%;
+}
+
+.homepage {
+  width: 1000px;
+}
