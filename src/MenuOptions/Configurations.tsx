@@ -1,36 +1,35 @@
-import React from 'react';
-import WebPage from './WebPage';
+import React from "react";
+import { RestClient } from "../RestClient"
+import WebPageEnvironments from './WebPageEnvironments';
 
-const parameters1 = {
-  buttonText: "Add item",
-  buttonVariant: 'success',
-  cardBody: 'Info about each item will come here somehow',
+
+
+
+function AvailableEnvironments() {
+
+	let [environments, setAvailableEnvironments] = React.useState<Array<any>>([])
+
+	React.useEffect(() => {
+		RestClient.getEnvironments()
+		          .then(environments => setAvailableEnvironments(environments))
+	}, [])
+
+
+  const availableEnvironments = {
+    header: " Manage Configurations",
+    subheader: "Edit, add, delete, view timespan",
+  }
+
+	return (
+		<div>
+				<div>
+          <React.Fragment>
+            <WebPageEnvironments {...availableEnvironments} />
+          </React.Fragment>
+        </div>
+		</div>
+    )
 }
+export default AvailableEnvironments;
 
-const parameters2 = {
-  buttonText: "Edit item",
-  buttonVariant: 'warning',
-  cardBody: 'Info about each item will come here somehow',
-}
-
-const parameters3 = {
-  buttonText: "Delete item",
-  buttonVariant: 'danger',
-  cardBody: 'Info about each item will come here somehow',
-}
-
-
-const configurations = {
-  header: "Configurations",
-  subheader: "Options",
-  listHeaders: [parameters1, parameters2, parameters3]
-}
-
-export default function Configurations() {
-  return (
-    <React.Fragment>
-      <WebPage {...configurations} />
-    </React.Fragment>
-  );
-}
 

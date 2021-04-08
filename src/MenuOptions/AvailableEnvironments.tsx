@@ -1,24 +1,35 @@
-import React from 'react';
-import WebPage from './WebPage';
+import React from "react";
+import { RestClient } from "../RestClient"
+import WebPageAvailEnv from './WebPageAvailEnv';
 
-const parameters1 = {
-  buttonText: "environment x",
-  buttonVariant: 'primary',
-  cardBody: 'Info about each item will come here somehow',
+
+
+
+function AvailableEnvironments() {
+
+	let [environments, setAvailableEnvironments] = React.useState<Array<any>>([])
+
+	React.useEffect(() => {
+		RestClient.getEnvironments()
+		          .then(environments => setAvailableEnvironments(environments))
+	}, [])
+
+
+  const availableEnvironments = {
+    header: "Available Environments",
+    subheader: "List of Environments in Database",
+  }
+
+	return (
+		<div>
+				<div>
+          <React.Fragment>
+            <WebPageAvailEnv {...availableEnvironments} />
+          </React.Fragment>
+        </div>
+		</div>
+    )
 }
+export default AvailableEnvironments;
 
-
-const availableEnvironments = {
-  header: "Available Environments",
-  subheader: "List of Environments in Database",
-  listHeaders: [parameters1]
-}
-
-export default function AvailableEnvironments() {
-  return (
-    <React.Fragment>
-      <WebPage {...availableEnvironments} />
-    </React.Fragment>
-  );
-}
 

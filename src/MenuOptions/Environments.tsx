@@ -1,30 +1,35 @@
-import React from 'react';
-import WebPage from './WebPage';
+import React from "react";
+import { RestClient } from "../RestClient"
+import WebPageEnvironments from './WebPageEnvironments';
 
-const parameters1 = {
-  buttonText: "Add new environment",
-  buttonVariant: 'success',
-  cardBody: 'Textbox?',
+
+
+
+function AvailableEnvironments() {
+
+	let [environments, setAvailableEnvironments] = React.useState<Array<any>>([])
+
+	React.useEffect(() => {
+		RestClient.getEnvironments()
+		          .then(environments => setAvailableEnvironments(environments))
+	}, [])
+
+
+  const availableEnvironments = {
+    header: " Manage Environments",
+    subheader: "Edit, add",
+  }
+
+	return (
+		<div>
+				<div>
+          <React.Fragment>
+            <WebPageEnvironments {...availableEnvironments} />
+          </React.Fragment>
+        </div>
+		</div>
+    )
 }
+export default AvailableEnvironments;
 
-const parameters2 = {
-  buttonText: "Edit description of existing environment",
-  buttonVariant: 'warning',
-  cardBody: 'list of environments and textbox?',
-}
-
-
-const environments = {
-  header: "Environments",
-  subheader: "Options",
-  listHeaders: [parameters1, parameters2]
-}
-
-export default function Environments() {
-  return (
-    <React.Fragment>
-      <WebPage {...environments} />
-    </React.Fragment>
-  );
-}
 
