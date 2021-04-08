@@ -17,10 +17,7 @@ function Sidebar() {
       </SubMenu>
       
       <SubMenu title="Configuration Data" icon={<IoList />}>
-        <MenuItem><NavLink to="/development">Development</NavLink></MenuItem>
-        <MenuItem><NavLink to="/test">Test</NavLink></MenuItem>
-        <MenuItem><NavLink to="/production">Production</NavLink></MenuItem>
-        <MenuItem><NavLink to="/disasterRecovery">Disaster Recovery</NavLink></MenuItem>
+        <MenuItem><NavLink to="/availableEnvironments">Available environments</NavLink></MenuItem>
       </SubMenu>
 
       <SubMenu title="Admin" icon={<IoDocumentLock />}>

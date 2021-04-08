@@ -40,7 +40,8 @@ code {
 }
 
 .header {
-  width: 140vh;
+  width: 110vh;
+  text-align: center;
 }
 
 h2 {
@@ -54,4 +55,8 @@ h2 {
 .sidebarHeader {
   font-size: 20px;
   margin-left: 5px;
+}
+
+.accordiation-1 {
+  margin-left: 500px;
 }

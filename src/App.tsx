@@ -5,16 +5,13 @@ import Sidebar from './Sidebar';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
 
-import About from './MenuOptions/Menu/About';
-import Welcome from './MenuOptions/Menu/Welcome';
+import About from './MenuOptions/About';
+import Welcome from './MenuOptions/Welcome';
 
-import Development from './MenuOptions/ConfigurationData/Development';
-import Production from './MenuOptions/ConfigurationData/Production';
-import Test from './MenuOptions/ConfigurationData/Test';
-import DisasterRecovery from './MenuOptions/ConfigurationData/DisasterRecovery';
+import AvailableEnvironments from './MenuOptions/AvailableEnvironments';
 
-import Configurations from './MenuOptions/Admin/Configurations';
-import Environments from './MenuOptions/Admin/Environments';
+import Configurations from './MenuOptions/Configurations';
+import Environments from './MenuOptions/Environments';
 
 function App() {
   return (
@@ -36,20 +33,8 @@ function App() {
           </Route>
 
 
-          <Route path="/development">
-            <Development/>
-          </Route>
-
-          <Route path="/test">
-            <Test/>
-          </Route>
-
-          <Route path="/production">
-            <Production/>
-          </Route>
-          
-          <Route path="/disasterRecovery">
-            <DisasterRecovery/>
+          <Route path="/availableEnvironments">
+            <AvailableEnvironments/>
           </Route>
 
 
