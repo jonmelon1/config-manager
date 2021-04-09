@@ -25,15 +25,14 @@ function EditEnvironment(environment: any) {
     const handleSubmit = (e: any) => {
 		e.preventDefault();
         handleClose();
-		let configuration = {
+		let newEnvironment = {
             id: environment.id,
 			environmentName:    (document.getElementById('environmentName') as HTMLInputElement).value,
 			description:        (document.getElementById('description') as HTMLInputElement).value,
-            timestamp:           dateTime.toISOString(),
 		}
-		RestClient.editEnvironment(configuration)
+		RestClient.editEnvironment(newEnvironment)
 		          .then( () => {
-					  window.alert('Configuration Registered')
+					  window.alert('Change Registered')
                       setValue(value => value + 1)
 				  })
 				  .catch( (e: any) => alert(e))

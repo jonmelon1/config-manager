@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup'
 import { RestClient } from "../RestClient"
 import { useParams } from "react-router-dom";
-import AddConfiguration from './AddConfiguration'
+import AddConfig from './AddConfiguration'
 import DeleteConfiguration from './DeleteConfiguration'
 import EditConfiguration from './EditConfiguration'
 
@@ -83,7 +83,7 @@ export default function WebPageConfigurations({header, subheader}: any) {
                       <Card.Body className="cardBody-1">
                       <div>
                         <React.Fragment>
-                              {AddConfiguration(props)}
+                              {AddConfig(props)}
                         </React.Fragment>
                       </div>
                       </Card.Body>

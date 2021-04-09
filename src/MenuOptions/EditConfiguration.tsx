@@ -26,12 +26,12 @@ function EditConfiguration(configdatas: any) {
 		e.preventDefault();
         handleClose();
 		let configuration = {
-            id: configdatas.id,
-			configName:     (document.getElementById('configName') as HTMLInputElement).value,
-			application:    (document.getElementById('applicationName') as HTMLInputElement).value,
-			configValue:    (document.getElementById('configValue') as HTMLInputElement).value,
-            timestamp:       dateTime.toISOString(),
-            environmentId:   configdatas.environmentId
+        id: configdatas.id,
+			  configName:     (document.getElementById(configdatas.id + 'configName') as HTMLInputElement).value,
+		  	application:    (document.getElementById(configdatas.id + 'applicationName') as HTMLInputElement).value,
+			  configValue:    (document.getElementById(configdatas.id + 'configValue') as HTMLInputElement).value,
+        timestamp:       dateTime.toISOString(),
+        environmentId:   configdatas.environmentId
 		}
 		RestClient.editConfiguration(configuration)
 		          .then( () => {
@@ -40,7 +40,6 @@ function EditConfiguration(configdatas: any) {
 				  })
 				  .catch( (e: any) => alert(e))
 	}
-
 
     const [show, setShow] = useState(false);
   
@@ -60,11 +59,11 @@ function EditConfiguration(configdatas: any) {
           <Modal.Body>
           <Form>
             <Form.Group>
-                Configuration Name<Form.Control type="text" id="configName" placeholder={configdatas.configName} />
+                Configuration Name<Form.Control type="text" id={configdatas.id + 'configName'} placeholder={configdatas.configName} />
                 <br />
-                Application Name<Form.Control type="text" id="applicationName" placeholder={configdatas.application} />
+                Application Name<Form.Control type="text" id={configdatas.id + 'applicationName'} placeholder={configdatas.application} />
                 <br />
-                Configuration Value<Form.Control type="text" id="configValue" placeholder={configdatas.configValue} />
+                Configuration Value<Form.Control type="text" id={configdatas.id + 'configValue'} placeholder={configdatas.configValue} />
             </Form.Group>
           </Form>
           </Modal.Body>

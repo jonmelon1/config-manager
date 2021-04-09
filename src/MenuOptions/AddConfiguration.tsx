@@ -20,9 +20,9 @@ function AddConfiguration (environment: any) {
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
 		let configuration = {
-			configName:         (document.getElementById('configName') as HTMLInputElement).value,
-			application:        (document.getElementById('applicationName') as HTMLInputElement).value,
-			configValue:        (document.getElementById('configValue') as HTMLInputElement).value,
+			configName:         (document.getElementById(environment.environmentName + 'configName') as HTMLInputElement).value,
+			application:        (document.getElementById(environment.environmentName + 'applicationName') as HTMLInputElement).value,
+			configValue:        (document.getElementById(environment.environmentName + 'configValue') as HTMLInputElement).value,
             timestamp:           dateTime.toISOString(),
             environmentId:       environment.id
 		}
@@ -40,11 +40,11 @@ function AddConfiguration (environment: any) {
         <div>
         <Form onSubmit={handleSubmit}>
             <Form.Group>
-                <Form.Control type="text" id="configName" placeholder="Configuration Name" />
+                <Form.Control type="text" id={environment.environmentName + 'configName'} placeholder="Configuration Name" />
                 <br />
-                <Form.Control type="text" id="applicationName" placeholder="Application Name" />
+                <Form.Control type="text" id={environment.environmentName + 'applicationName'} placeholder="Application Name" />
                 <br />
-                <Form.Control type="text" id="configValue" placeholder="Value" />
+                <Form.Control type="text" id={environment.environmentName + 'configValue'} placeholder="Value" />
                 
             </Form.Group>
             <div className="submitButton">
