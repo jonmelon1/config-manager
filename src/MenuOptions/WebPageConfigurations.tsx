@@ -4,9 +4,12 @@ import Container from 'react-bootstrap/Container';
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup'
 import { RestClient } from "../RestClient"
+import { useParams } from "react-router-dom";
+import AddConfiguration from './AddConfiguration'
 
-export default function WebPageAvailEnv({header, subheader}: any) {
+export default function WebPageConfigurations({header, subheader}: any) {
     
   
   let [environments, setAvailableEnvironments] = React.useState<Array<any>>([])
@@ -14,6 +17,7 @@ export default function WebPageAvailEnv({header, subheader}: any) {
 	React.useEffect(() => {
 		RestClient.getEnvironments()
 		          .then(environments => setAvailableEnvironments(environments))
+              .catch((err: any) => alert(err))
 	}, [])
   
   
@@ -31,21 +35,54 @@ export default function WebPageAvailEnv({header, subheader}: any) {
         
         <Accordion defaultActiveKey="0">
         
-          {environments.map((props: any, i: any) =>
+          {environments.map((props: any, i: any, j: any) =>
             <div>
                 <Card>
                     <Card.Header>
                         <Accordion.Toggle as={Button} variant="primary" eventKey={i+1} className="availEnvButton">
                             {props.environmentName}
                         </Accordion.Toggle>
+                        <Accordion.Toggle as={Button} variant="success" eventKey={i+100} className="addButton">
+                            Add Configuration
+                        </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey={i+1}>
-                        <Card.Body className="cardBody-1"><b>Description: </b>{props.description}</Card.Body>
+                        <Card.Body className="cardBody-1">
+                          <div className="environmentDescription">
+                            <b>Environment Namezzz: </b>{props.description}<br/>
+                            <b>Time Registered: </b>{props.timestamp}<br/>                           
+                          </div>
+                          <br/><b>Configuration data:</b>
+                          <ListGroup>
+                            {props.configdatas.map((props2: any) =>
+                            <div>
+                              <ListGroup.Item>
+                                <div>
+                                  Configuration Name: {props2.configName}, 
+                                  Application Name: {props2.application}
+                                  <div>
+                                    <Button size="sm" variant="outline-warning">Edit</Button>{' '}
+                                    <Button size="sm" variant="outline-danger">Delete</Button>
+                                  </div>
+                                </div>
+                              </ListGroup.Item>
+                            </div>
+                            )}
+                          </ListGroup>
+                        </Card.Body>
+                    </Accordion.Collapse>
+                    <Accordion.Collapse eventKey={i+100}>
+                      <Card.Body className="cardBody-1">
+                      <div>
+                        <React.Fragment>
+                              {AddConfiguration(props)}
+                        </React.Fragment>
+                      </div>
+                      </Card.Body>
                     </Accordion.Collapse>
                 </Card>
             </div>            
           )}
-
         </Accordion> 
       </div>
     );

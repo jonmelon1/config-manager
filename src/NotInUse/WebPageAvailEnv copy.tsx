@@ -4,9 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup'
 import { RestClient } from "../RestClient"
-import { useParams } from "react-router-dom";
 
 export default function WebPageAvailEnv({header, subheader}: any) {
     
@@ -16,7 +14,6 @@ export default function WebPageAvailEnv({header, subheader}: any) {
 	React.useEffect(() => {
 		RestClient.getEnvironments()
 		          .then(environments => setAvailableEnvironments(environments))
-              .catch((err: any) => alert(err))
 	}, [])
   
   
@@ -43,27 +40,12 @@ export default function WebPageAvailEnv({header, subheader}: any) {
                         </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey={i+1}>
-                        <Card.Body className="cardBody-1">
-                          <div className="environmentDescription">
-                            <b>Environment Namezzz: </b>{props.description}<br/>
-                            <b>Time Registered: </b>{props.timestamp}<br/>                           
-                          </div>
-                          <br/><b>Configuration data:</b>
-                          <ListGroup>
-                            {props.configdatas.map((props2: any) =>
-                            <div>
-                              <ListGroup.Item>
-                              {props2.configName}<br/>
-                              {props2.application}
-                              </ListGroup.Item>
-                            </div>
-                            )}
-                          </ListGroup>
-                        </Card.Body>
+                        <Card.Body className="cardBody-1"><b>Description: </b>{props.description}</Card.Body>
                     </Accordion.Collapse>
                 </Card>
             </div>            
           )}
+
         </Accordion> 
       </div>
     );
