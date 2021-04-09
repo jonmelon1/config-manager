@@ -61,7 +61,7 @@ h2 {
   margin-left: 500px;
 }
 
-.availEnvButton {
+.availEnvButton, .addEnvButton {
   min-width: 150px;
   text-align: left;
 }
@@ -74,6 +74,17 @@ h2 {
   margin-left: 20px;
 }
 
-.submitButton {
-  margin-top: 5px;
+.buttons {
+  display: table-row;
+}
+
+.listButton, .addEnvButton {
+  display: table-cell;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+
+.addEnvDiv {
+  padding-left: 20px;
+  padding-bottom: 10px;
 }

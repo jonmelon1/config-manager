@@ -1,3 +1,5 @@
+import { NamedTupleMember } from "typescript"
+
 export class RestClient {
 
     static baseUrl = "https://localhost:44386"
@@ -30,6 +32,41 @@ export class RestClient {
                         method: 'POST', 
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(configuration)
+                    }
+        )
+    }
+
+    static deleteConfiguration(id: NamedTupleMember) : Promise<any> {
+        const url = `${RestClient.baseUrl}/api/deleteConfiguration/${id}`
+        return window.fetch(
+                    url, 
+                    { 
+                        method: 'DELETE', 
+                        headers: { 'Content-Type': 'application/json' }
+                    }
+        )
+    }
+
+    static editConfiguration(configuration: any) : Promise<any> {
+        const url = `${RestClient.baseUrl}/api/putConfiguration/`
+        return window.fetch(
+                    url, 
+                    { 
+                        method: 'PUT', 
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(configuration)
+                    }
+        )
+    }
+
+    static editEnvironment(environment: any) : Promise<any> {
+        const url = `${RestClient.baseUrl}/api/putEnvironment/`
+        return window.fetch(
+                    url, 
+                    { 
+                        method: 'PUT', 
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(environment)
                     }
         )
     }

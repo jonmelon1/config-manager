@@ -45,16 +45,19 @@ export default function WebPageAvailEnv({header, subheader}: any) {
                     <Accordion.Collapse eventKey={i+1}>
                         <Card.Body className="cardBody-1">
                           <div className="environmentDescription">
-                            <b>Environment Namezzz: </b>{props.description}<br/>
-                            <b>Time Registered: </b>{props.timestamp}<br/>                           
-                          </div>
+                            <b>Environment Name: </b>{props.description}<br/>
+                            <b>Environment ID: </b>{props.id}<br/>                           
+                          
                           <br/><b>Configuration data:</b>
+                          </div>
                           <ListGroup>
                             {props.configdatas.map((props2: any) =>
                             <div>
                               <ListGroup.Item>
-                              {props2.configName}<br/>
-                              {props2.application}
+                              <b> Configuration Name: </b>{props2.configName}, 
+                              <b> Application Name: </b>{props2.application}, 
+                              <b> Configuration Value: </b>{props2.configValue}, 
+                              <b> Timestamp: </b>{props2.timestamp}
                               </ListGroup.Item>
                             </div>
                             )}

@@ -6,7 +6,7 @@ function Configurations() {
 
   const configurations = {
     header: "Manage Configurations",
-    subheader: "edit, add, delete, view timespan",
+    subheader: "",
   }
 
 	return (

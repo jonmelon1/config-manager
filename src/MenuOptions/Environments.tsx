@@ -17,7 +17,7 @@ function AvailableEnvironments() {
 
   const availableEnvironments = {
     header: " Manage Environments",
-    subheader: "Edit, add",
+    subheader: "",
   }
 
 	return (

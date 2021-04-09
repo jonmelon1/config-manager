@@ -8,6 +8,8 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import { RestClient } from "../RestClient"
 import { useParams } from "react-router-dom";
 import AddConfiguration from './AddConfiguration'
+import DeleteConfiguration from './DeleteConfiguration'
+import EditConfiguration from './EditConfiguration'
 
 export default function WebPageConfigurations({header, subheader}: any) {
     
@@ -35,7 +37,7 @@ export default function WebPageConfigurations({header, subheader}: any) {
         
         <Accordion defaultActiveKey="0">
         
-          {environments.map((props: any, i: any, j: any) =>
+          {environments.map((props: any, i: any) =>
             <div>
                 <Card>
                     <Card.Header>
@@ -49,8 +51,8 @@ export default function WebPageConfigurations({header, subheader}: any) {
                     <Accordion.Collapse eventKey={i+1}>
                         <Card.Body className="cardBody-1">
                           <div className="environmentDescription">
-                            <b>Environment Namezzz: </b>{props.description}<br/>
-                            <b>Time Registered: </b>{props.timestamp}<br/>                           
+                            <b>Environment Name: </b>{props.description}<br/>
+                            <b>Environment ID: </b>{props.id}<br/>                             
                           </div>
                           <br/><b>Configuration data:</b>
                           <ListGroup>
@@ -60,9 +62,15 @@ export default function WebPageConfigurations({header, subheader}: any) {
                                 <div>
                                   Configuration Name: {props2.configName}, 
                                   Application Name: {props2.application}
-                                  <div>
-                                    <Button size="sm" variant="outline-warning">Edit</Button>{' '}
-                                    <Button size="sm" variant="outline-danger">Delete</Button>
+                                  <div className="buttons">
+                                    <React.Fragment>
+                                      <div className="listButton">
+                                      {EditConfiguration(props2)}
+                                      </div>
+                                      <div className="listButton">
+                                      {DeleteConfiguration(props2)}
+                                      </div>
+                                    </React.Fragment>
                                   </div>
                                 </div>
                               </ListGroup.Item>
