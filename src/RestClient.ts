@@ -70,4 +70,16 @@ export class RestClient {
                     }
         )
     }
+
+    static addEnvironment(environment: any) : Promise<any> {
+        const url = `${RestClient.baseUrl}/api/postEnvironment/`
+        return window.fetch(
+                    url, 
+                    { 
+                        method: 'POST', 
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(environment)
+                    }
+        )
+    }
 }

@@ -40,11 +40,11 @@ function AddConfiguration (environment: any) {
         <div>
         <Form onSubmit={handleSubmit}>
             <Form.Group>
-                <Form.Control type="text" id={environment.environmentName + 'configName'} placeholder="Configuration Name" />
+                <Form.Control type="text" maxLength={25}  id={environment.environmentName + 'configName'}      placeholder="Configuration Name" />
                 <br />
-                <Form.Control type="text" id={environment.environmentName + 'applicationName'} placeholder="Application Name" />
+                <Form.Control type="text" maxLength={25}  id={environment.environmentName + 'applicationName'} placeholder="Application Name" />
                 <br />
-                <Form.Control type="text" id={environment.environmentName + 'configValue'} placeholder="Value" />
+                <Form.Control type="text" maxLength={200} id={environment.environmentName + 'configValue'}     placeholder="Value" />
                 
             </Form.Group>
             <div className="submitButton">

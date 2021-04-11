@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
-import Accordion from 'react-bootstrap/Accordion';
-import Card from 'react-bootstrap/Card';
 import { RestClient } from "../RestClient"
 import Modal from 'react-bootstrap/Modal'
 
@@ -59,11 +57,11 @@ function EditConfiguration(configdatas: any) {
           <Modal.Body>
           <Form>
             <Form.Group>
-                Configuration Name<Form.Control type="text" id={configdatas.id + 'configName'} placeholder={configdatas.configName} />
+                Configuration Name<Form.Control  type="text" maxLength={25}  id={configdatas.id + 'configName'}      defaultValue={configdatas.configName}  placeholder={configdatas.configName} />
                 <br />
-                Application Name<Form.Control type="text" id={configdatas.id + 'applicationName'} placeholder={configdatas.application} />
+                Application Name<Form.Control    type="text" maxLength={25}  id={configdatas.id + 'applicationName'} defaultValue={configdatas.application} placeholder={configdatas.application} />
                 <br />
-                Configuration Value<Form.Control type="text" id={configdatas.id + 'configValue'} placeholder={configdatas.configValue} />
+                Configuration Value<Form.Control type="text" maxLength={200} id={configdatas.id + 'configValue'}     defaultValue={configdatas.configValue} placeholder={configdatas.configValue} />
             </Form.Group>
           </Form>
           </Modal.Body>

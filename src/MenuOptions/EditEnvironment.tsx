@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
-import Accordion from 'react-bootstrap/Accordion';
-import Card from 'react-bootstrap/Card';
 import { RestClient } from "../RestClient"
 import Modal from 'react-bootstrap/Modal'
 
@@ -19,8 +17,6 @@ export default function EditEnv(props: any) {
 function EditEnvironment(environment: any) {
 
     const [value, setValue] = React.useState(0) 
-
-    let dateTime = new Date()
 
     const handleSubmit = (e: any) => {
 		e.preventDefault();
@@ -57,9 +53,9 @@ function EditEnvironment(environment: any) {
           <Modal.Body>
           <Form>
             <Form.Group>
-                Environment Name<Form.Control type="text" id="environmentName" placeholder={environment.environmentName} />
+                Environment Name<Form.Control        type="text" id="environmentName" maxLength={10} defaultValue={environment.environmentName} placeholder={environment.environmentName} />
                 <br />
-                Environment Description<Form.Control type="text" id="description" placeholder={environment.description} />
+                Environment Description<Form.Control type="text" id="description"     maxLength={30} defaultValue={environment.description}     placeholder={environment.description} />
             </Form.Group>
           </Form>
           </Modal.Body>

@@ -5,7 +5,7 @@ import WebPageConfigurations from './WebPageConfigurations';
 function Configurations() {
 
   const configurations = {
-    header: "Manage Configurations",
+    header: "Environments and Configurations",
     subheader: "",
   }
 

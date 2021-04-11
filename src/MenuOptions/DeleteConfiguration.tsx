@@ -18,7 +18,6 @@ export default function DeleteConfiguration (configuration: any) {
 				  .catch( (e: any) => alert(e))
 	}
 
-
     return (
         <div>
         <Form onSubmit={handleSubmit}>

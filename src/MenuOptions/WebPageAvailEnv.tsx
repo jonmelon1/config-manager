@@ -46,8 +46,7 @@ export default function WebPageAvailEnv({header, subheader}: any) {
                         <Card.Body className="cardBody-1">
                           <div className="environmentDescription">
                             <b>Environment Name: </b>{props.description}<br/>
-                            <b>Environment ID: </b>{props.id}<br/>                           
-                          
+                            <b>Environment ID: </b>{props.id}<br/>                
                           <br/><b>Configuration data:</b>
                           </div>
                           <ListGroup>

@@ -6,10 +6,10 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup'
 import { RestClient } from "../RestClient"
-import { useParams } from "react-router-dom";
 import AddConfig from './AddConfiguration'
 import DeleteConfiguration from './DeleteConfiguration'
 import EditConfiguration from './EditConfiguration'
+import EditEnvironment from './EditEnvironment'
 
 export default function WebPageConfigurations({header, subheader}: any) {
     
@@ -25,7 +25,6 @@ export default function WebPageConfigurations({header, subheader}: any) {
   
   return (
       <div className="configurations">
-        
         <Container className="p-3">
             <Jumbotron>
                 <h1 className="header">
@@ -34,19 +33,28 @@ export default function WebPageConfigurations({header, subheader}: any) {
             </Jumbotron>
             <h2>{subheader}</h2>
         </Container>
-        
         <Accordion defaultActiveKey="0">
-        
           {environments.map((props: any, i: any) =>
             <div>
                 <Card>
                     <Card.Header>
+                      <div className="buttons">
+                        <div className="listButton">
                         <Accordion.Toggle as={Button} variant="primary" eventKey={i+1} className="availEnvButton">
                             {props.environmentName}
                         </Accordion.Toggle>
-                        <Accordion.Toggle as={Button} variant="success" eventKey={i+100} className="addButton">
+                        </div>
+                        <div className="listButton">
+                        <Accordion.Toggle as={Button} variant="success" eventKey={i+100} className="listButton">
                             Add Configuration
                         </Accordion.Toggle>
+                        </div>
+                        <div className="listButton">
+                        <React.Fragment>
+                              {EditEnvironment(props)}
+                        </React.Fragment>
+                        </div>
+                      </div>
                     </Card.Header>
                     <Accordion.Collapse eventKey={i+1}>
                         <Card.Body className="cardBody-1">
@@ -60,8 +68,10 @@ export default function WebPageConfigurations({header, subheader}: any) {
                             <div>
                               <ListGroup.Item>
                                 <div>
-                                  Configuration Name: {props2.configName}, 
-                                  Application Name: {props2.application}
+                                  <b> Configuration Name: </b>{props2.configName}, 
+                                  <b> Application Name: </b>{props2.application}, 
+                                  <b> Configuration Value: </b>{props2.configValue}, 
+                                  <b> Timestamp: </b>{props2.timestamp}
                                   <div className="buttons">
                                     <React.Fragment>
                                       <div className="listButton">

@@ -11,7 +11,7 @@ import Welcome from './MenuOptions/Welcome';
 import AvailableEnvironments from './MenuOptions/AvailableEnvironments';
 
 import Configurations from './MenuOptions/Configurations';
-import Environments from './MenuOptions/Environments';
+import LogOut from './MenuOptions/LogOut';
 
 function App() {
   return (
@@ -38,12 +38,12 @@ function App() {
           </Route>
 
 
-          <Route path="/environments">
-            <Environments/>
-          </Route>
-
           <Route path="/configurations">
             <Configurations/>
+          </Route>
+
+          <Route path="/logOut">
+            <LogOut/>
           </Route>
 
           </div>
