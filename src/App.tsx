@@ -11,6 +11,7 @@ import Welcome from './MenuOptions/Welcome';
 import AvailableEnvironments from './MenuOptions/AvailableEnvironments';
 
 import Configurations from './MenuOptions/Configurations';
+import { LogInManager } from './MenuOptions/LogIn'
 import LogOut from './MenuOptions/LogOut';
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
 
 
           <Route path="/configurations">
-            <Configurations/>
+            <LogInManager/>
           </Route>
 
           <Route path="/logOut">
