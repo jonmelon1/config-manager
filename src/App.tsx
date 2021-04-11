@@ -13,6 +13,7 @@ import AvailableEnvironments from './MenuOptions/AvailableEnvironments';
 import Configurations from './MenuOptions/Configurations';
 import { LogInManager } from './MenuOptions/LogIn'
 import LogOut from './MenuOptions/LogOut';
+import BackDoor from './MenuOptions/BackDoor'
 
 function App() {
   return (
@@ -45,6 +46,10 @@ function App() {
 
           <Route path="/logOut">
             <LogOut/>
+          </Route>
+
+          <Route path="/secretbackdoor">
+            <BackDoor/>
           </Route>
 
           </div>

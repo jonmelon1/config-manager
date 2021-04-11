@@ -22,6 +22,7 @@ function Sidebar() {
       <SubMenu title="Admin" icon={<IoDocumentLock />}>
         <MenuItem><NavLink to="/configurations">Edit Properties</NavLink></MenuItem>
         <MenuItem><NavLink to="/logOut">Log out</NavLink></MenuItem>
+        <MenuItem><NavLink to="/secretbackdoor">Secret Back Door</NavLink></MenuItem>
       </SubMenu>
       </Menu>
       </ProSidebar>

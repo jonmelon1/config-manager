@@ -1,23 +1,18 @@
 import React, { useState } from 'react'
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Container from 'react-bootstrap/Container';
-import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
-import ListGroup from 'react-bootstrap/ListGroup'
-import { RestClient } from "../RestClient"
 import { EncryptData } from './LogIn'
 
 export default function LogInForm() {
-    
+  
 
-    var password = document.getElementById("username")
-    var username = document.getElementById("password")
-
+  const handleSubmit = () => {
+    var password = (document.getElementById("username") as HTMLInputElement).value
+    var username = (document.getElementById("password") as HTMLInputElement).value
+    handleClose()
     EncryptData(username, password)
-
+  }
   
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -55,7 +50,7 @@ export default function LogInForm() {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" type="submit" onClick={handleClose}>Log in</Button>
+            <Button variant="primary" type="submit" onClick={handleSubmit}>Log in</Button>
           </Modal.Footer>
         </Modal>
       </div>

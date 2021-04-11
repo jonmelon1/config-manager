@@ -12,6 +12,14 @@ const logIn = {
 
 var loggedIn: boolean;
 
+function LogOut() {
+  loggedIn = false
+}
+
+function BackDoorLogIn() {
+  loggedIn = true
+}
+
 function LogInManager() {
   
   if (loggedIn == true) {
@@ -51,13 +59,13 @@ function EncryptData(username: any, password: any) {
   var ciphertext = CryptoJS.AES.encrypt(username, key, {iv:iv});
   var cipherstring = ciphertext.toString();
 
-  MatchToken(username, password, cipherstring)
+  MatchToken(username, cipherstring)
 }
 
 
-function MatchToken(username: any, password: any, ciphertext: any) {
+function MatchToken(username: any, ciphertext: any) {
 
-  let [token, setToken] = React.useState<any>(undefined)
+  let [token, setToken] = React.useState<Array<any>>([])
 
 	React.useEffect(() => {
 		RestClient.getToken(username)
@@ -81,5 +89,7 @@ function MatchToken(username: any, password: any, ciphertext: any) {
 
 export {
   LogInManager,
-  EncryptData
+  EncryptData,
+  LogOut,
+  BackDoorLogIn
 }
