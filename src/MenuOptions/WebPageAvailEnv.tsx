@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup'
 import { RestClient } from "../RestClient"
-import { useParams } from "react-router-dom";
 
 export default function WebPageAvailEnv({header, subheader}: any) {
     
@@ -45,8 +44,7 @@ export default function WebPageAvailEnv({header, subheader}: any) {
                     <Accordion.Collapse eventKey={i+1}>
                         <Card.Body className="cardBody-1">
                           <div className="environmentDescription">
-                            <b>Environment Name: </b>{props.description}<br/>
-                            <b>Environment ID: </b>{props.id}<br/>                
+                            <b>Environment Name: </b>{props.description}<br/>             
                           <br/><b>Configuration data:</b>
                           </div>
                           <ListGroup>

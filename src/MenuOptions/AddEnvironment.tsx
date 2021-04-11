@@ -39,14 +39,14 @@ function AddEnvironment () {
     const handleShow = () => setShow(true);
   
     return (
-        <>
-        <Button variant="success" className="availEnvButton" onClick={handleShow}>
+        <div className="addEnvButton">
+        <Button variant="info" onClick={handleShow}>
         Add Environment
         </Button>
 
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-            <Modal.Title>Edit Environment</Modal.Title>
+            <Modal.Title>Add Environment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Form>
@@ -66,6 +66,6 @@ function AddEnvironment () {
             </Button>
         </Modal.Footer>
         </Modal>
-        </>
+        </div>
     )
 }

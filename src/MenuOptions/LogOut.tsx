@@ -1,5 +1,6 @@
 import React from 'react';
 import WebPage from './WebPage';
+import LogIn from './LogIn'
 
 
 const logOut = {
@@ -10,9 +11,11 @@ const logOut = {
 
 export default function LogOut() {
   return (
-    <React.Fragment>
-      <WebPage {...logOut} />
-    </React.Fragment>
+    <div>
+      hei
+      {LogIn()}
+    </div>
+    
   );
 }
 

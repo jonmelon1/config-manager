@@ -10,6 +10,7 @@ import AddConfig from './AddConfiguration'
 import DeleteConfiguration from './DeleteConfiguration'
 import EditConfiguration from './EditConfiguration'
 import EditEnvironment from './EditEnvironment'
+import AddEnvironment from './AddEnvironment'
 
 export default function WebPageConfigurations({header, subheader}: any) {
     
@@ -33,6 +34,11 @@ export default function WebPageConfigurations({header, subheader}: any) {
             </Jumbotron>
             <h2>{subheader}</h2>
         </Container>
+        <React.Fragment>
+          <div className="listButton">
+          {AddEnvironment()}
+          </div>
+        </React.Fragment>
         <Accordion defaultActiveKey="0">
           {environments.map((props: any, i: any) =>
             <div>

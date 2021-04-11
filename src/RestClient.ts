@@ -82,4 +82,10 @@ export class RestClient {
                     }
         )
     }
+
+    static async getToken(username: any) : Promise<any> {
+        const url = `${RestClient.baseUrl}/api/getToken/${username}`
+        const response = await window.fetch(url)
+        return await response.json()
+    }
 }
