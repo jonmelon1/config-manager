@@ -12,6 +12,8 @@ const logIn = {
 
 var loggedIn: boolean;
 
+loggedIn = true
+
 function LogOut() {
   loggedIn = false
 }

@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
 import { EncryptData } from './LogIn'
 
+
 export default function LogInForm() {
   
 
