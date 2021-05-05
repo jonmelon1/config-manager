@@ -2,7 +2,7 @@ import { NamedTupleMember } from "typescript"
 
 export class RestClient {
 
-    static baseUrl = "https://localhost:44386"
+    static baseUrl = "https://webtrial1.azurewebsites.net"
 
     static async getEnvironments() : Promise<any> {
         const url = `${RestClient.baseUrl}/api/getEnvironments`
